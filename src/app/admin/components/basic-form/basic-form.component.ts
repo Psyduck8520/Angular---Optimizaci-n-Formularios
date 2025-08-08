@@ -15,7 +15,9 @@ export class BasicFormComponent implements OnInit {
   agefield = new FormControl('');
   categoryfield = new FormControl('category-1');
   tagfield = new FormControl('');
-
+  agreefield = new FormControl(true);
+  genderfield = new FormControl('');
+  zonefield = new FormControl('');
   constructor() { }
   ngOnInit(): void {
     this.namefield.valueChanges.subscribe(value => {
