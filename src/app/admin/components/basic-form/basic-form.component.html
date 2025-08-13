@@ -1,10 +1,18 @@
 <p>
-  Name:{{ namefield.value }}
+  Name:{{ namefield.value }}  {{ namefield.valid }}
   <input type="text" [formControl]="namefield">
-  <button (click)="getNameValue()">Get Value</button>
+  <button [disabled]="namefield.invalid" (click)="getNameValue()">Get Value</button>
   <!--  <code>
     <pre>{{namefield |json }}</pre>
   </code>-->
+</p>
+
+<p>
+ <strong *ngIf=" namefield.touched && namefield.hasError('required')">Este campo es requerido</strong>
+</p>
+
+<p>
+  <strong *ngIf=" namefield.touched && namefield.hasError('maxlength')">El campo debe tener maximo 10 caracteres</strong>
 </p>
 
 <p>
@@ -53,40 +61,45 @@
 </p>
 
 <p>
-   Agree: {{agreefield.value}}
-  <input type="Checkbox" [formControl] = "agreefield">
+  Agree: {{ agreefield.value }}
+  <input type="Checkbox" [formControl]="agreefield">
 </p>
 
 <p>
-  Gender: {{genderfield.value}}
+  Gender: {{ genderfield.value }}
   <label>
-    <input  name="gender" type="radio" value="male" [formControl] = "genderfield">
+    <input name="gender" type="radio" value="male" [formControl]="genderfield">
     Male
   </label>
   <label>
-    <input name="gender" type="radio" value="female"  [formControl] = "genderfield">
+    <input name="gender" type="radio" value="female" [formControl]="genderfield">
     Female
   </label>
   <label>
-    <input name="gender" type="radio" value="other"  [formControl] = "genderfield">
+    <input name="gender" type="radio" value="other" [formControl]="genderfield">
     other
   </label>
 </p>
 
 <p>
-  Zone: {{zonefield.value}}
+  Zone: {{ zonefield.value }}
   <label>
-    <input  name="zone" type="radio" value="zone-1" [formControl] = "zonefield">
+    <input name="zone" type="radio" value="zone-1" [formControl]="zonefield">
     Zone 1
   </label>
   <label>
-    <input name="zone"   type="radio" value="zone-2"  [formControl] = "zonefield">
+    <input name="zone" type="radio" value="zone-2" [formControl]="zonefield">
     Zone 2
   </label>
   <label>
-    <input name="zone"  type="radio" value="zone-3"  [formControl] = "zonefield">
+    <input name="zone" type="radio" value="zone-3" [formControl]="zonefield">
     Zone 3
   </label>
+  <label>
+    <input name="zone" type="radio" value="zone-3" [formControl]="zonefield">
+    Zone 3
+  </label>
+
 </p>
 
 
